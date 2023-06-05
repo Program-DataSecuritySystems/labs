@@ -147,5 +147,47 @@ namespace Arithmetic
                 result = "0";
             return result;
         }
+
+        public string SquareElevation(string a)
+        {
+            return Multiply(a, a);
+        }
+
+        public string Modulo(string a, string m)
+        {
+            BigInteger res = 0;
+            var mm = BigInteger.Parse(m);
+
+            for (var i = 0; i < a.Length; i++)
+                res = (res * 10 + a[i] - '0') % mm;
+
+            return res.ToString();
+        }
+
+        private string ModPowerLL(BigInteger x, BigInteger n, BigInteger mod)
+        {
+            BigInteger result = 1;
+            while (n > 0)
+            {
+                if (n % 2 == 1)
+                    result = result * x % mod;
+                n = n / 2;
+                x = x * x % mod;
+            }
+
+            return result.ToString();
+        }
+
+        public string ModPowerStrings(string sa, string sb, string smod)
+        {
+            var mod = BigInteger.Parse(smod);
+
+            var samod = Modulo(sa, smod);
+            var a = BigInteger.Parse(samod);
+
+            var b = BigInteger.Parse(sb);
+
+            return ModPowerLL(a, b, mod);
+        }
     }
 }
