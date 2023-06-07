@@ -1,10 +1,18 @@
 ﻿using System.Numerics;
+using Arithmetic;
 
 namespace Generator;
 
 public class PrimeGenerator
 {
     private static readonly Random Random = new();
+
+    private readonly Operations _op;
+
+    public PrimeGenerator()
+    {
+        _op = new Operations();
+    }
 
     public BigInteger GeneratePrime(int numberOfDigits)
     {
@@ -93,16 +101,13 @@ public class PrimeGenerator
         return result;
     }
 
-    private BigInteger Sqrt(BigInteger number)
+    public bool ApproveByFermatLittleTheorem(BigInteger number)
     {
-        var x = number;
-        var y = (x + 1) / 2;
-        while (y < x)
-        {
-            x = y;
-            y = (x + number / x) / 2;
-        }
-
-        return x;
+        var a = 2;
+        var sa = a.ToString();
+        var sb = (number - 1).ToString();
+        var smod = number.ToString();
+        var result = _op.ModPowerStrings(sa, sb, smod);
+        return BigInteger.Parse(result) == 1;
     }
 }

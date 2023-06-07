@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/Arithmetic.dll": {}
         }
+      },
+      "Generator/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Arithmetic": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Generator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Generator.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../Arithmetic/Arithmetic.csproj",
       "msbuildProject": "../Arithmetic/Arithmetic.csproj"
+    },
+    "Generator/1.0.0": {
+      "type": "project",
+      "path": "../Generator/Generator.csproj",
+      "msbuildProject": "../Generator/Generator.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Arithmetic >= 1.0.0"
+      "Arithmetic >= 1.0.0",
+      "Generator >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -60,6 +79,9 @@
           "projectReferences": {
             "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Arithmetic\\Arithmetic.csproj": {
               "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Arithmetic\\Arithmetic.csproj"
+            },
+            "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Generator\\Generator.csproj": {
+              "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Generator\\Generator.csproj"
             }
           }
         }

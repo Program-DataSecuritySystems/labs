@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Arithmetic\Arithmetic.csproj" />
+    <ProjectReference Include="..\Generator\Generator.csproj" />
   </ItemGroup>
 
 </Project>
