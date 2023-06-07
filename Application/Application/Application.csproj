@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Arithmetic\Arithmetic.csproj" />
+    <ProjectReference Include="..\DigitalSignature\DigitalSignature.csproj" />
     <ProjectReference Include="..\ElGamal\ElGamal.csproj" />
     <ProjectReference Include="..\Generator\Generator.csproj" />
     <ProjectReference Include="..\RSA\RSA.csproj" />

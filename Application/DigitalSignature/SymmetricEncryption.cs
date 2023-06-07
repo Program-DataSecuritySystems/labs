@@ -4,7 +4,7 @@ namespace DigitalSignature;
 
 public class SymmetricEncryption
 {
-    private const int _blockSize = 8; // Розмір блоку (в байтах)
+    private const int _blockSize = 8;
 
     // Метод для шифрування повідомлення з використанням симетричного шифру
     public static string Encrypt(string message, string key)
@@ -62,5 +62,39 @@ public class SymmetricEncryption
         }
 
         return Convert.ToBase64String(signatureBytes);
+    }
+
+    // Метод для дешифрування повідомлення з використанням симетричного шифру
+    public static string Decrypt(string encryptedMessage, string key)
+    {
+        byte[] encryptedBytes = Convert.FromBase64String(encryptedMessage);
+        byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+        byte[] decryptedBytes = new byte[encryptedBytes.Length];
+
+        for (int i = 0; i < encryptedBytes.Length; i += _blockSize)
+        {
+            byte[] encryptedBlock = new byte[_blockSize];
+            Array.Copy(encryptedBytes, i, encryptedBlock, 0, _blockSize);
+
+            // Виконати дешифрування блоку
+            byte[] decryptedBlock = DecryptBlock(encryptedBlock, keyBytes);
+
+            Array.Copy(decryptedBlock, 0, decryptedBytes, i, _blockSize);
+        }
+
+        return Encoding.UTF8.GetString(decryptedBytes).TrimEnd('\0');
+    }
+
+    // Метод для дешифрування одного блоку
+    private static byte[] DecryptBlock(byte[] encryptedBlock, byte[] key)
+    {
+        byte[] decryptedBlock = new byte[encryptedBlock.Length];
+
+        for (int i = 0; i < encryptedBlock.Length; i++)
+        {
+            decryptedBlock[i] = (byte)(encryptedBlock[i] ^ key[i % key.Length]);
+        }
+
+        return decryptedBlock;
     }
 }

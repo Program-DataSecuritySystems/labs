@@ -12,6 +12,16 @@
           "bin/placeholder/Arithmetic.dll": {}
         }
       },
+      "DigitalSignature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DigitalSignature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigitalSignature.dll": {}
+        }
+      },
       "ElGamal/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -59,6 +69,11 @@
       "path": "../Arithmetic/Arithmetic.csproj",
       "msbuildProject": "../Arithmetic/Arithmetic.csproj"
     },
+    "DigitalSignature/1.0.0": {
+      "type": "project",
+      "path": "../DigitalSignature/DigitalSignature.csproj",
+      "msbuildProject": "../DigitalSignature/DigitalSignature.csproj"
+    },
     "ElGamal/1.0.0": {
       "type": "project",
       "path": "../ElGamal/ElGamal.csproj",
@@ -78,6 +93,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Arithmetic >= 1.0.0",
+      "DigitalSignature >= 1.0.0",
       "ElGamal >= 1.0.0",
       "Generator >= 1.0.0",
       "RSA >= 1.0.0"
@@ -117,6 +133,9 @@
           "projectReferences": {
             "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Arithmetic\\Arithmetic.csproj": {
               "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Arithmetic\\Arithmetic.csproj"
+            },
+            "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\DigitalSignature\\DigitalSignature.csproj": {
+              "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\DigitalSignature\\DigitalSignature.csproj"
             },
             "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\ElGamal\\ElGamal.csproj": {
               "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\ElGamal\\ElGamal.csproj"

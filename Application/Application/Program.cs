@@ -2,6 +2,7 @@
 using Generator;
 using RSA;
 using ElGamal;
+using DigitalSignature;
 using System.Numerics;
 
 //------------------lab 4.1
@@ -79,3 +80,26 @@ Console.WriteLine("Certificate verification: " + isCertificateValid);
 Console.WriteLine();
 
 //------------------lab 6
+
+string message3 = "Happy to see you";
+string key = "SecretKey123";
+Console.WriteLine("Original message: " + message3);
+// Шифрування повідомлення
+string encryptedMessage = SymmetricEncryption.Encrypt(message3, key);
+Console.WriteLine("Encrypted message: " + encryptedMessage);
+// Дешифрування повідомлення
+string decryptedMessage = SymmetricEncryption.Decrypt(encryptedMessage, key);
+Console.WriteLine("Decrypted message: " + decryptedMessage);
+// Формування цифрового підпису повідомлення
+string signature = SymmetricEncryption.GenerateSignature(message3, key);
+Console.WriteLine("Message signature: " + signature);
+// Перевірка цифрового підпису
+bool isSignatureValid = VerifySignature(message3, signature, key);
+Console.WriteLine("Signature is valid: " + isSignatureValid);
+
+// Метод для перевірки цифрового підпису повідомлення
+static bool VerifySignature(string message, string signature, string key)
+{
+    string calculatedSignature = SymmetricEncryption.GenerateSignature(message, key);
+    return signature.Equals(calculatedSignature);
+}
