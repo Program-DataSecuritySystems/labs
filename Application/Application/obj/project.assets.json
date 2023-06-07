@@ -24,6 +24,19 @@
         "runtime": {
           "bin/placeholder/Generator.dll": {}
         }
+      },
+      "RSA/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Generator": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RSA.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RSA.dll": {}
+        }
       }
     }
   },
@@ -37,12 +50,18 @@
       "type": "project",
       "path": "../Generator/Generator.csproj",
       "msbuildProject": "../Generator/Generator.csproj"
+    },
+    "RSA/1.0.0": {
+      "type": "project",
+      "path": "../RSA/RSA.csproj",
+      "msbuildProject": "../RSA/RSA.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Arithmetic >= 1.0.0",
-      "Generator >= 1.0.0"
+      "Generator >= 1.0.0",
+      "RSA >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -82,6 +101,9 @@
             },
             "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Generator\\Generator.csproj": {
               "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\Generator\\Generator.csproj"
+            },
+            "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\RSA\\RSA.csproj": {
+              "projectPath": "C:\\Users\\Віктор\\Desktop\\СБ лаба 4\\Application\\RSA\\RSA.csproj"
             }
           }
         }

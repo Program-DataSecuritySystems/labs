@@ -1,5 +1,7 @@
 ﻿using Arithmetic;
 using Generator;
+using RSA;
+using System.Numerics;
 
 //------------------lab 4.1
 
@@ -32,3 +34,21 @@ approvementResult = primeGenerator.ApproveByFermatLittleTheorem(generationResult
 answer = approvementResult ? "Yes" : "No";
 Console.WriteLine($"Example of generated number: {generationResult}");
 Console.WriteLine($"Approved? - {answer}");
+Console.WriteLine();
+
+//------------------lab 5 - RSA
+
+RsaKeyGenerator keyGenerator = new();
+keyGenerator.GenerateKeys(12);
+RsaEncryptor rsaEncryptor = keyGenerator.GetEncryptor();
+RsaDecryptor rsaDecryptor = keyGenerator.GetDecryptor();
+var message1 = 123456789;
+var encryptedrsa = rsaEncryptor.Encrypt(message1);
+BigInteger decryptedrsa = rsaDecryptor.Decrypt(encryptedrsa);
+Console.WriteLine("Original message: " + message1);
+Console.WriteLine("Encrypted message: " + encryptedrsa);
+Console.WriteLine("Decrypted message: " + decryptedrsa);
+Console.WriteLine();
+
+//------------------lab 5 - El-Gamal
+
