@@ -27,7 +27,7 @@ var approvementResult = primeGenerator.ApproveByFermatLittleTheorem(generationRe
 var answer = approvementResult ? "Yes" : "No";
 Console.WriteLine($"Example of generated number: {generationResult}");
 Console.WriteLine($"Approved? - {answer}");
-generationResult = primeGenerator.GeneratePrime(7);
+generationResult = primeGenerator.GeneratePrime(12);
 approvementResult = primeGenerator.ApproveByFermatLittleTheorem(generationResult);
 answer = approvementResult ? "Yes" : "No";
 Console.WriteLine($"Example of generated number: {generationResult}");
