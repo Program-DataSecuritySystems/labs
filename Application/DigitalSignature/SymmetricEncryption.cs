@@ -4,7 +4,7 @@ namespace DigitalSignature;
 
 public class SymmetricEncryption
 {
-    private const int _blockSize = 8; // Розмір блоку (в байтах)
+    private const int _blockSize = 8;
 
     // Метод для шифрування повідомлення з використанням симетричного шифру
     public static string Encrypt(string message, string key)
@@ -88,9 +88,6 @@ public class SymmetricEncryption
     // Метод для дешифрування одного блоку
     private static byte[] DecryptBlock(byte[] encryptedBlock, byte[] key)
     {
-        // TODO: Реалізувати логіку дешифрування блоку
-        // Використовуйте key для дешифрування блоку і повертайте результат
-        // (наприклад, можна використовувати XOR-операцію для простоти, але це не надійно)
         byte[] decryptedBlock = new byte[encryptedBlock.Length];
 
         for (int i = 0; i < encryptedBlock.Length; i++)
