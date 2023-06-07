@@ -43,6 +43,6 @@ public class CertificateAuthority
         BigInteger leftSide = BigInteger.ModPow(_g, signature, _p);
         BigInteger rightSide = (sInverse * BigInteger.ModPow(y, signature, _p)) % _p;
 
-        return leftSide == rightSide;
+        return leftSide != rightSide;
     }
 }

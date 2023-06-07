@@ -1,6 +1,7 @@
 ﻿using Arithmetic;
 using Generator;
 using RSA;
+using ElGamal;
 using System.Numerics;
 
 //------------------lab 4.1
@@ -52,3 +53,29 @@ Console.WriteLine();
 
 //------------------lab 5 - El-Gamal
 
+var generator = new PrimeGenerator();
+BigInteger p1 = generator.GeneratePrime(10);
+BigInteger g = RandomGenerator.GenerateRandomNumber(2, p1 - 1);
+BigInteger x = RandomGenerator.GenerateRandomNumber(2, p1 - 1);
+var message2 = "123456789";
+Console.WriteLine("Original message: " + message2);
+// Encrypt
+var encryptor = new ElGamalEncryptor(p1, g, x);
+BigInteger message = BigInteger.Parse(message2);
+BigInteger[] encrypted = encryptor.Encrypt(message);
+Console.WriteLine("Encrypted: ");
+Console.WriteLine("\tC1: " + encrypted[0]);
+Console.WriteLine("\tC2: " + encrypted[1]);
+// Decrypt
+var decryptor = new ElGamalDecryptor(p1, x);
+BigInteger decrypted = decryptor.Decrypt(encrypted);
+Console.WriteLine("Decrypted: " + decrypted);
+Console.WriteLine();
+CertificateAuthority certificateAuthority = new CertificateAuthority(p1, g);
+BigInteger certificate = certificateAuthority.GenerateCertificate(encryptor.GetPublicKey());
+Console.WriteLine("Generated certificate: " + certificate);
+bool isCertificateValid = certificateAuthority.VerifyCertificate(certificate, encryptor.GetPublicKey());
+Console.WriteLine("Certificate verification: " + isCertificateValid);
+Console.WriteLine();
+
+//------------------lab 6
